@@ -1,4 +1,4 @@
-package Features;
+package features;
 
 /**
  * Hello world!
