@@ -11,13 +11,11 @@ import java.time.Duration;
 public class searchSteps extends TestBase {
     SearchPage_PF searchPage;
 
-
     @Before
     public void browserSetup(){
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         webDriver.navigate().to("https://www.google.com");
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
     }
     @Given("page is loaded")
