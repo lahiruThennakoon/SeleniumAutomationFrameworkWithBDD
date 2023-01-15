@@ -1,4 +1,6 @@
 Feature:To test the google search
+
+  @smoke
   Scenario Outline: Check google search is successful with multiple search
 
     Given page is loaded

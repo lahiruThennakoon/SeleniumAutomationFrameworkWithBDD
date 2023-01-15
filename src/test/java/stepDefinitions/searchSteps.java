@@ -1,34 +1,37 @@
-package StepDefinitions;
+package stepDefinitions;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.SearchPage;
-
+import pageFactory.SearchPage_PF;
 import java.time.Duration;
 
-public class searchSteps {
+public class searchSteps extends TestBase {
+    SearchPage_PF searchPage;
 
-    WebDriver webDriver;
-    SearchPage searchPage;
-
-    @Given("page is loaded")
-    public void page_is_loaded() {
+    @Before
+    public void browserSetup(){
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         webDriver.navigate().to("https://www.google.com");
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+
+    }
+    @Given("page is loaded")
+    public void page_is_loaded() {
+        System.out.println("page is loaded");
 
     }
 
         @When("user clicks on search box")
         public void user_clicks_on_search_box() {
 
+
         }
         @When("user type the {string}")
         public void user_type_the(String string) {
-        searchPage= new SearchPage(webDriver);
+        searchPage= new SearchPage_PF(webDriver);
             searchPage.addUserName(string);
         }
         @When("user add the {string} and search")
@@ -41,7 +44,12 @@ public class searchSteps {
         }
         @Then("user should navigate to the results sheet")
         public void user_should_navigate_to_the_results_sheet() {
-          webDriver.close();
-          webDriver.quit();
+
+        }
+
+        @After
+    public void tearDown (){
+            webDriver.close();
+            webDriver.quit();
         }
 }

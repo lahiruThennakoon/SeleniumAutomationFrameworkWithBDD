@@ -1,4 +1,4 @@
-package StepDefinitions;
+package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -6,9 +6,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
-public class loginSteps {
+public class loginSteps extends TestBase{
 
-    WebDriver webDriver;
     @Given("user is on login page")
     public void user_is_on_login_page() {
         System.out.println("user in login page");
