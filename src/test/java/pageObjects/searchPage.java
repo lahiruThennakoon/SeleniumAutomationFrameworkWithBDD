@@ -1,2 +1,4 @@
-package pageObjects;public class searchPage {
+package pageObjects;
+
+public class searchPage {
 }
